@@ -1,0 +1,75 @@
+<div  *ngIf="viewMode; else editable">
+  <div *ngIf="currentRecipe.id">
+    <h4>Recipe Details</h4>
+    <div>
+      <label><strong>Recipe Title:</strong></label> {{ currentRecipe.title }}
+    </div>
+    <div>
+      <label><strong>Recipe Description:</strong></label>
+      {{ currentRecipe.description }}
+    </div>
+    <div>
+      <label><strong>Recipe Status:</strong></label>
+      {{ currentRecipe.published ? "Active" : "Deactivate" }}
+    </div>
+
+    <a
+      class="btn btn-warning"
+      routerLink="/recipes/{{ currentRecipe.id }}"
+    >
+      Edit Recipe
+    </a>
+  </div>
+
+  <div *ngIf="!currentRecipe">
+    <br />
+    <p>Please click on a Recipe...</p>
+  </div>
+</div>
+
+<ng-template #editable>
+  <div *ngIf="currentRecipe.id" class="edit-form">
+    <h4>Recipe Details</h4>
+    <form >
+      <div class="form-group">
+        <label for="title">Recipe Title</label>
+        <input
+          type="text"
+          class="form-control"
+          id="title"
+          [(ngModel)]="currentRecipe.title"
+          name="title"
+        />
+      </div>
+      <div class="form-group">
+        <label for="description">Recipe Description</label>
+        <input
+          type="text"
+          class="form-control"
+          id="description"
+          [(ngModel)]="currentRecipe.description"
+          name="description"
+        />
+      </div>
+
+      <div class="form-group">
+        <label><strong>Recipe Status:</strong></label>
+        {{ currentRecipe.published ? "Active" : "Not Acvtive" }}
+      </div>
+    </form>
+    
+    <button class="btn btn-primary mr-1" *ngIf="currentRecipe.published" (click)="updatePublished(false)">Deactivate</button>
+    <button class="btn btn-primary mr-1" *ngIf="!currentRecipe.published" (click)="updatePublished(true)">Activate</button>
+    <button class="btn btn-danger mr-1" type="delete" (click)="deleteRecipe()">Delete Recipe</button>
+    <button class="btn btn-success" type="submit" (click)="updateRecipe()">Update Recipe </button>
+    <button class="btn btn-warning mr-1" type="warning"> <a routerLink="/recipes">Go Back</a> </button>
+    <p>{{ message }}</p>
+  <p>{{ messageUpdate }}</p>
+
+  </div>
+
+  <div *ngIf="!currentRecipe.id">
+    <br />
+    <p>Cannot access this Recipe...</p>
+  </div>
+</ng-template>

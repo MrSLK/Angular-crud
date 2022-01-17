@@ -1,0 +1,47 @@
+<div class="list row">
+  <div class="col-md-6">
+    <h4>Recipe List</h4>
+    <br>
+    <div class="col-md-18">
+    <div class="input-group mb-3">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Search by title"
+        [(ngModel)]="title"
+      />
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary"type="button" (click)="searchTitle()">Search</button>
+        <button class="btn btn-outline-secondary"type="button" (click)="clearSearchBar()">Clear</button>
+      </div>
+    </div>
+  </div>
+    <div class="col-md-12">
+      
+    <ul class="list-group">
+      <li
+        class="list-group-item"
+        *ngFor="let tutorial of tutorials; let i = index"
+        [class.active]="i == currentIndex"
+        (click)="setActiveTutorial(tutorial, i)"
+      >
+        {{ tutorial.title }}
+      </li>
+    </ul>
+    
+    <button class="m-3 btn btn-sm btn-danger" (click)="removeAllTutorials()" [disabled]="removeButton()" >
+      Remove All
+    </button>
+    
+
+  </div>
+  </div>
+  
+  <div class="col-md-6">
+    <br><br><br><br>
+    <app-tutorial-details
+      [viewMode]="true"
+      [currentRecipe]="currentRecipe"
+    ></app-tutorial-details>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+.list {
+    text-align: left;
+    max-width: 750px;
+    margin: auto;
+    color: #fff;
+    /* margin-top: 2rem; */
+  }
+
+  .Welcome{
+    text-align: left;
+    max-width: 750px;
+    margin: auto;
+    margin-top: 2rem;
+    color: #fff;
+  }
+
+  .link{
+    color: #fff;
+  }

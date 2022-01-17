@@ -1,0 +1,11 @@
+.list {
+    text-align: left;
+    max-width: 750px;
+    margin: auto;
+    color: #fff;
+  }
+
+  .input-group-append{
+    color: #fff;
+    background-color: orange;
+  }
