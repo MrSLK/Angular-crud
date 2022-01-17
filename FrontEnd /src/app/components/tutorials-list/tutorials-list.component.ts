@@ -79,7 +79,6 @@ export class TutorialsListComponent implements OnInit {
       return false;
     }
   }
-
   
 
 }
