@@ -1,3 +1,6 @@
+const BaseUrl = 'http://localhost:8080/api/tutorials'
+
 export const environment = {
-  production: true
+  production: true,
+  baseUrl: BaseUrl
 };

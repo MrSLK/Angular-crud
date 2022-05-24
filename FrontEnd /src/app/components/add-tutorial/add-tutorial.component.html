@@ -7,6 +7,7 @@
           type="string"
           class="form-control"
           id="title"
+          placeholder="Enter recipe title here..."
           required
           [(ngModel)]="tutorial.title"
           name="title"
@@ -19,6 +20,7 @@
         <input
           class="form-control"
           id="description"
+          placeholder="Enter recipe description here..."
           required
           [(ngModel)]="tutorial.description"
           ngModel pattern="[a-zA-Z]"
@@ -27,17 +29,22 @@
       </div>
 
       <button [disabled]="disableButton()" (click)="saveTutorial()" class="btn mr-1" >Submit Recipe</button>
+      <button class="btn btn-primary mr-1" (click)="clearField()">Clear Fields</button>
       <button class="btn btn-warning mr-1" type="button">
         <a routerLink="/recipes">Go Back</a> 
       </button>
       <p><strong>{{messageErr}}</strong>
       <p><strong>{{messageErro}}</strong>
+        <p><strong>{{characErr}}</strong>
       </p>
     </div>
 
     <div *ngIf="submitted">
       <h4>Recipe was submitted successfully!</h4>
-      <button class="btn btn-success" (click)="newTutorial()">Add</button>
+      <button class="btn btn-success mr-1" (click)="newTutorial()">Add</button>
+      <button class="btn btn-warning mr-1" type="button">
+        <a routerLink="/recipes">Show Recipes</a> 
+      </button>
     </div>
   </div>
 </div>

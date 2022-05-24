@@ -3,8 +3,10 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Tutorial } from '../models/tutorial.model';
 import { ValidatorFn, AbstractControl } from '@angular/forms';
+import { FormGroup } from '@angular/forms';
+import {environment} from '../../environments/environment'
 
-const baseUrl = 'http://localhost:8080/api/tutorials';
+const baseUrl = environment.baseUrl;
 
 @Injectable({
   providedIn: 'root'
@@ -22,7 +24,7 @@ export class TutorialService {
       }
       const regex = new RegExp('^(?=.*?[A-Z])(?=.*?[a-z])');
       const valid = regex.test(control.value);
-      return valid ? this.patternValid : { invalidPassword: true };
+      return valid ? this.patternValid  : { invalidPassword: true };
     };
   }
 

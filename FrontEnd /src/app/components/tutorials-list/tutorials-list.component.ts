@@ -69,6 +69,7 @@ export class TutorialsListComponent implements OnInit {
 
   clearSearchBar(): void {
     this.title = '';
+    this.refreshList();
   }
 
   removeButton(): boolean {

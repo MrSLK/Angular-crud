@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { TutorialService } from 'src/app/services/tutorial.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Tutorial } from 'src/app/models/tutorial.model';
+import { TutorialsListComponent } from "../tutorials-list/tutorials-list.component"
 
 @Component({
   selector: 'app-tutorial-details',
